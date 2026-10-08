@@ -12,7 +12,9 @@ html,body{
 :root{
 
     /* Background Colors */
-    --bg-primary-color: #0c0c0c;
+    --bg-primary-color : #0c0c0c;
+    --bg-fill-color : #e6e6e6;
+    --bg-food-color : #f1621b;
 
     
     /* Text Colors */
@@ -29,7 +31,6 @@ html,body{
 
     /* Border Colors */
     --border-primary-color: #333333;
-    --bg-fill-color : #e6e6e6;
 
     /* Border Radius */
     --border-radius-xs: 4px;
@@ -49,6 +50,18 @@ html{
 main,section{
     height: 100%;
     width: 100%;
+}
+
+.btn{
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.1);
 }
 
 section{
@@ -77,17 +90,46 @@ section .infos{
     /* display: flex;
     flex-wrap: wrap; */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30px,1fr));
-    grid-template-columns: repeat(auto-fill, minmax(30px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(50px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(50px,1fr));
 }
 
 .block{
-    width: 30px;
-    height: 30px;
+    /* width: 30px;
+    height: 30px; */
     border: 1px solid var(--border-primary-color);
     /* flex-shrink: 0; */
+    border-radius: 50%;
 }
 
 .fill{
     background-color: var(--bg-fill-color);
+}
+
+.food{
+    background-color: var(--bg-food-color);
+}
+
+.modal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0; 
+    background-color: #5b5b5b70;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .start-game,
+.modal .game-over{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: var(--space-lg);    
+}
+
+.modal .game-over{
+    display: none;
 }
